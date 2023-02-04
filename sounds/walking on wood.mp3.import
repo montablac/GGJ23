@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walking on wood.mp3-da1c47ab8802f2558978bd4852301ce8.mp3str"
+
+[deps]
+
+source_file="res://sounds/walking on wood.mp3"
+dest_files=[ "res://.import/walking on wood.mp3-da1c47ab8802f2558978bd4852301ce8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
