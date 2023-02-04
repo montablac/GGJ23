@@ -1,5 +1,6 @@
 extends KinematicBody
 
+signal Change_World(NewState)
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,6 +12,9 @@ var JumpAmount = 0
 var SavedDirection = 0
 var Jumping = false
 var slopepercentage = 0.5
+var NearTree = false
+
+var Passes = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +25,8 @@ func _physics_process(delta):
 	
 	Force[1] -= Gravity
 	Force = self.move_and_slide(Force,Vector3(0.0,1.0,0.0),true);
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -51,6 +57,9 @@ func _process(delta):
 			JumpAmount = JumpPower
 			SavedDirection = Direction
 	
+	if(Input.is_key_pressed(KEY_Q) && NearTree):
+		print("got to top")
+	
 	if(Jumping):
 		Force[0] += SavedDirection * Speed 
 		JumpAmount -= JumpPower * delta
@@ -66,3 +75,11 @@ func _on_Area_body_entered(body):
 
 func _on_Area_body_exited(body):
 	slopepercentage = 0.5
+
+
+func _on_Area_area_entered(area):
+	NearTree = true
+
+
+func _on_Area_area_exited(area):
+	NearTree = false
