@@ -20,7 +20,6 @@ func _physics_process(delta):
 	
 	Force[1] -= Gravity
 	Force = self.move_and_slide(Force,Vector3(0.0,1.0,0.0),true);
-	print(Force)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,11 +28,14 @@ func _process(delta):
 	var JumpPower = 20;
 	var NotMoving = true
 	var Gravity = 5.0
+	var SlopeHelper = 1.0
+	var slopepercentage = 0.5
 	
 	Force = Vector3(0.0,Speed * -1.0,0.0);
 	
 	if(self.is_on_floor()):
 		Jumping = false
+		SlopeHelper += (self.get_floor_angle() * slopepercentage)
 	
 	if(Input.is_key_pressed(KEY_D) && !Jumping):
 		Direction += 1.0;
@@ -54,5 +56,6 @@ func _process(delta):
 		if(JumpAmount >= 0):
 			Force += JumpDirection * JumpAmount
 	else:
-		Force[0] += Direction * Speed
+		Force[0] += Direction * Speed * SlopeHelper
+		print(Force[0])
 	
