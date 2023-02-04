@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/running on wood.mp3-0c1eb8e23e01d19f273c1a231c6b94e3.mp3str"
+
+[deps]
+
+source_file="res://sounds/running on wood.mp3"
+dest_files=[ "res://.import/running on wood.mp3-0c1eb8e23e01d19f273c1a231c6b94e3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

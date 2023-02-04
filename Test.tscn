@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
+[ext_resource path="res://Terain/data.hterrain" type="Resource" id=4]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 0.1, 2 )
@@ -601,7 +602,7 @@ mesh = SubResource( 2 )
 transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -500 )
 script = ExtResource( 2 )
 lod_scale = 2.0
-_terrain_data = null
+_terrain_data = ExtResource( 4 )
 chunk_size = 32
 collision_enabled = true
 collision_layer = 1
