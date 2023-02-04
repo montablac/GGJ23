@@ -12,11 +12,13 @@ extents = Vector3( 10, 0.1, 2 )
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 20, 0.2, 4 )
 
-[sub_resource type="CapsuleShape" id=3]
-height = 2.0
-
 [sub_resource type="CapsuleMesh" id=4]
 mid_height = 2.0
+
+[sub_resource type="BoxShape" id=13]
+
+[sub_resource type="CapsuleShape" id=3]
+height = 2.0
 
 [sub_resource type="ConvexPolygonShape" id=5]
 
@@ -30,6 +32,9 @@ mid_height = 2.0
 script = ExtResource( 3 )
 mode = 0
 textures = [ [  ], [  ] ]
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 5, 5, 2.5 )
 
 [node name="Spatial" type="Spatial"]
 
@@ -48,11 +53,8 @@ skeleton = NodePath("../../StaticBody5")
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.44196, 0 )
 axis_lock_motion_z = true
 move_lock_z = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 437.675, 107.074, 1.14441e-05 )
 script = ExtResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -61,6 +63,15 @@ mesh = SubResource( 4 )
 [node name="Camera" type="Camera" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49742, 10.9062 )
 far = 500.0
+
+[node name="Area" type="Area" parent="RigidBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody/Area"]
+shape = SubResource( 13 )
+
+[node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 3 )
 
 [node name="StaticBody6" type="StaticBody" parent="."]
 transform = Transform( 12.8679, 0, 0, 0, 4.0096, 0, 0, 0, 2.52717, -42.9023, 20.1721, 0 )
@@ -597,3 +608,11 @@ shape = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody65"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268723, 0, 0 )
 mesh = SubResource( 2 )
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 455.551, 106.96, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 12 )
+
+[connection signal="area_entered" from="Area" to="RigidBody" method="_on_Area_area_entered"]
+[connection signal="area_exited" from="Area" to="RigidBody" method="_on_Area_area_exited"]
