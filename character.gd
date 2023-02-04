@@ -10,6 +10,7 @@ var JumpDirection = Vector3(0.0,0.0,0.0)
 var JumpAmount = 0
 var SavedDirection = 0
 var Jumping = false
+var slopepercentage = 0.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,13 +30,13 @@ func _process(delta):
 	var NotMoving = true
 	var Gravity = 5.0
 	var SlopeHelper = 1.0
-	var slopepercentage = 0.5
 	
 	Force = Vector3(0.0,Speed * -1.0,0.0);
 	
 	if(self.is_on_floor()):
 		Jumping = false
 		SlopeHelper += (self.get_floor_angle() * slopepercentage)
+		print(SlopeHelper)
 	
 	if(Input.is_key_pressed(KEY_D) && !Jumping):
 		Direction += 1.0;
@@ -57,5 +58,11 @@ func _process(delta):
 			Force += JumpDirection * JumpAmount
 	else:
 		Force[0] += Direction * Speed * SlopeHelper
-		print(Force[0])
 	
+
+func _on_Area_body_entered(body):
+	slopepercentage = 1.8
+
+
+func _on_Area_body_exited(body):
+	slopepercentage = 0.5

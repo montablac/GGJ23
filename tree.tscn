@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://tree.dae" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.180392, 0.419608, 0.188235, 1 )
+metallic_specular = 0.0
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.286275, 0.223529, 0.121569, 1 )
+
+[node name="tree" instance=ExtResource( 1 )]
+transform = Transform( 3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0 )
+
+[node name="Cone" parent="." index="0"]
+material/0 = SubResource( 1 )
+
+[node name="Cone001" parent="." index="1"]
+material/0 = SubResource( 1 )
+
+[node name="Cone002" parent="." index="2"]
+material/0 = SubResource( 1 )
+
+[node name="Cone003" parent="." index="3"]
+material/0 = SubResource( 1 )
+
+[node name="Cylinder" parent="." index="4"]
+material/0 = SubResource( 2 )
