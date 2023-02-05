@@ -70,7 +70,6 @@ func _process(delta):
 		NearTree = false
 		if(Passes < 3):
 			self.global_transform.origin = Origin
-		print(Passes)
 	
 	if(Jumping):
 		Force[0] += SavedDirection * Speed 
@@ -99,9 +98,11 @@ func _on_Area_area_exited(area):
 func OnStairs(area):
 	StairsCount += 1
 	if(StairsCount > 0):
+		print("on stairs")
 		slopepercentage = 1.8
 	
 func OffStairs(area):
-	StairsCount += 1
+	StairsCount -= 1
 	if(StairsCount == 0):
+		print("off stairs")
 		slopepercentage = 0.5

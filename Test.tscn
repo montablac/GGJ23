@@ -860,8 +860,6 @@ mesh = SubResource( 2 )
 [node name="Spatial" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 460.933, 102.167, 0 )
 
-[connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
-[connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
 [node name="stairs" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 366.587, 68.7815, 0 )
 
@@ -928,5 +926,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 419.086, 99.2848, 0 )
 [node name="stairs22" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 421.011, 100.771, 0 )
 
+[connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
+[connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
 [connection signal="area_entered" from="Area" to="Player" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="Player" method="_on_Area_area_exited"]
