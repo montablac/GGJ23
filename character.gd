@@ -15,11 +15,13 @@ var Jumping = false
 var slopepercentage = 0.5
 var NearTree = false
 
+var Origin = Vector3(0.0,0.0,0.0)
+
 var Passes = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Origin = self.global_transform.origin
 
 func _physics_process(delta):
 	var Gravity = 1.0
@@ -62,10 +64,11 @@ func _process(delta):
 			SavedDirection = Direction
 	
 	if(Input.is_key_pressed(KEY_Q) && NearTree):
-		self.global_transform.origin = Vector3(0,0,0)
 		Passes += 1
 		emit_signal("Change_World", Passes)
 		NearTree = false
+		if(Passes < 3):
+			self.global_transform.origin = Origin
 		print(Passes)
 	
 	if(Jumping):

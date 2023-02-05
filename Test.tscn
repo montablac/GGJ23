@@ -5,7 +5,7 @@
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
 [ext_resource path="res://Terain/data.hterrain" type="Resource" id=4]
 [ext_resource path="res://tree.tscn" type="PackedScene" id=5]
-[ext_resource path="res://3d_assets/tree/tree.glb" type="PackedScene" id=6]
+[ext_resource path="res://3d_assets/tree/TreeEvolve.tscn" type="PackedScene" id=6]
 [ext_resource path="res://3d_assets/player/playerModel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3d_assets/stairs/stairs.tscn" type="PackedScene" id=8]
 
@@ -857,8 +857,8 @@ shape = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268723, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="tree86" parent="." instance=ExtResource( 6 )]
-transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 460.933, 102.167, 0 )
+[node name="Spatial" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 460.933, 102.167, 0 )
 
 [node name="stairs" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 366.587, 68.7815, 0 )
