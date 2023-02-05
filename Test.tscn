@@ -718,7 +718,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 393.256, 39.2871, -95.1143 )
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 411.777, 39.2871, -86.3051 )
 
 [node name="tree62" parent="." instance=ExtResource( 5 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 394.866, 86.5243, -15.5882 )
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 395.179, 86.5243, -15.5882 )
 
 [node name="tree63" parent="." instance=ExtResource( 5 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 445.368, 39.2871, -106.231 )
