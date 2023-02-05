@@ -41,7 +41,7 @@ animation = "idle"
 [sub_resource type="AnimationNodeBlend2" id=20]
 
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -596.206, -141.861 )
+graph_offset = Vector2( -374.342, -171.355 )
 nodes/Animation/node = SubResource( 12 )
 nodes/Animation/position = Vector2( -240, -133.333 )
 "nodes/Animation 2/node" = SubResource( 11 )
@@ -67,7 +67,7 @@ nodes/speed/node = SubResource( 14 )
 nodes/speed/position = Vector2( 189.193, 30.626 )
 nodes/walking/node = SubResource( 20 )
 nodes/walking/position = Vector2( -66.6667, 80 )
-node_connections = [ "speed", 0, "Standing", "speed", 1, "walking", "speed", 2, "running", "output", 0, "falling", "Standing", 0, "Animation", "Standing", 1, "Animation 7", "falling", 0, "speed", "falling", 1, "Animation 2", "walking", 0, "Animation 3", "walking", 1, "Animation 5", "running", 0, "Animation 4", "running", 1, "Animation 6" ]
+node_connections = [ "running", 0, "Animation 4", "running", 1, "Animation 6", "Standing", 0, "Animation", "Standing", 1, "Animation 7", "walking", 0, "Animation 3", "walking", 1, "Animation 5", "falling", 0, "speed", "falling", 1, "Animation 2", "speed", 0, "Standing", "speed", 1, "walking", "speed", 2, "running", "output", 0, "falling" ]
 
 [node name="model" instance=ExtResource( 3 )]
 script = ExtResource( 8 )
@@ -88,5 +88,5 @@ active = true
 parameters/Standing/blend_amount = 0.0
 parameters/falling/blend_amount = 0.0
 parameters/running/blend_amount = 0
-parameters/speed/blend_amount = 0.19
+parameters/speed/blend_amount = -1.0
 parameters/walking/blend_amount = 0.0

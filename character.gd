@@ -1,6 +1,8 @@
 extends KinematicBody
 
 signal Change_World(NewState)
+signal PlayerOffGround
+signal PlayerOnGround
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -42,6 +44,7 @@ func _process(delta):
 	
 	if(self.is_on_floor()):
 		Jumping = false
+		emit_signal("PlayerOnGround")
 		SlopeHelper += (self.get_floor_angle() * slopepercentage)
 	
 	if(Input.is_key_pressed(KEY_D) && !Jumping):
@@ -52,6 +55,7 @@ func _process(delta):
 	
 	if(Input.is_key_pressed(KEY_SPACE)):
 		if(self.is_on_floor()):
+			emit_signal("PlayerOffGround")
 			JumpDirection = self.get_floor_normal()
 			Jumping = true
 			JumpAmount = JumpPower

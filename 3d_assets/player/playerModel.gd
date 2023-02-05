@@ -10,8 +10,17 @@ var Fall = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	var Player = get_tree().get_root().find_node("Player", true, false)
+	Player.connect("PlayerOffGround",self,"SignalJump")
+	Player.connect("PlayerOnGround",self,"SignalLand")
 
+func SignalJump():
+	Jumped = true
+	print("jump")
+
+func SignalLand():
+	Fall = false
+	print("land")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,20 +35,21 @@ func _process(delta):
 	
 	if(Diffrence[0] != 0):
 		if(Diffrence[0] < 0):
+			self.rotation_degrees = Vector3(0.0,180 + 90,0.0)
+		elif(Diffrence[0] > 0):
+			self.rotation_degrees = Vector3(0.0,90,0.0)
+		if(Diffrence[0] < 0):
 			Diffrence[0] *= -1
 		Speed = ((Diffrence[0] / 0.17) * 2) - 1
 		
 		if(Speed > 1.0):
 			Speed = 1.0
 			
-	if(Diffrence[1] != 0.0):
-		if(Jumped && Diffrence[1] <= 0.3):
-			Fall = true
-			Jumped = false
-		if(Diffrence[1] >= 0.2):
-			Jumped = true
-	else:
-		Fall = false
+	
+	if(Jumped && Diffrence[1] <= 0):
+		Fall = true
+		Jumped = false
+		
 	print(Diffrence[1])
 	
 	if(Jumped):
