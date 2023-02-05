@@ -5,13 +5,10 @@
 [ext_resource path="res://treeColored.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TreeEvolve.gd" type="Script" id=4]
 
-[node name="Spatial" type="Spatial"]
-script = ExtResource( 4 )
+[node name="Spatial2" type="Spatial"]
 
 [node name="tree" parent="." instance=ExtResource( 3 )]
 
 [node name="sapling" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="seedling" parent="." instance=ExtResource( 2 )]
-visible = false

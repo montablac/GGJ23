@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://tree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://3d_assets/tree/TreeEvolve.tscn" type="PackedScene" id=6]
 [ext_resource path="res://3d_assets/player/playerModel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://3d_assets/stairs/stairs.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleMesh" id=4]
 mid_height = 2.0
@@ -861,5 +862,71 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 460.933, 102.167, 0 )
 
 [connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
 [connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
+[node name="stairs" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 366.587, 68.7815, 0 )
+
+[node name="stairs2" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 368.087, 70.2815, 0 )
+
+[node name="stairs3" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 369.627, 71.758, 0 )
+
+[node name="stairs4" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 371.127, 73.258, 0 )
+
+[node name="stairs5" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 372.646, 74.7124, 0 )
+
+[node name="stairs6" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 385.37, 78.9408, 0 )
+
+[node name="stairs7" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 386.87, 80.4408, 0 )
+
+[node name="stairs8" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 388.409, 81.9173, 0 )
+
+[node name="stairs9" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 389.909, 83.4173, 0 )
+
+[node name="stairs10" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 391.908, 84.948, 0 )
+
+[node name="stairs11" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 393.776, 86.4517, 0 )
+
+[node name="stairs12" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 395.276, 87.9517, 0 )
+
+[node name="stairs13" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 396.815, 89.4282, 0 )
+
+[node name="stairs14" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 398.74, 90.9142, 0 )
+
+[node name="stairs15" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 409.14, 90.2975, 0 )
+
+[node name="stairs16" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 410.68, 91.7739, 0 )
+
+[node name="stairs17" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 412.18, 93.2739, 0 )
+
+[node name="stairs18" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 414.179, 94.8046, 0 )
+
+[node name="stairs19" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 416.046, 96.3083, 0 )
+
+[node name="stairs20" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 417.546, 97.8083, 0 )
+
+[node name="stairs21" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 419.086, 99.2848, 0 )
+
+[node name="stairs22" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 421.011, 100.771, 0 )
+
 [connection signal="area_entered" from="Area" to="Player" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="Player" method="_on_Area_area_exited"]
