@@ -24,6 +24,7 @@ var Passes = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Origin = self.global_transform.origin
+	Passes = 0
 
 func _physics_process(delta):
 	var Gravity = 1.0
@@ -44,6 +45,7 @@ func _process(delta):
 	var Speed = 10
 	
 	if(gameend):
+		$Label3D.visible = false
 		$Camera.translation[1] += 4.0 * delta
 	
 	Force = Vector3(0.0,Speed * -1.0,0.0);
@@ -97,11 +99,19 @@ func _on_Area_body_exited(body):
 
 
 func _on_Area_area_entered(area):
+	if(Passes == 0):
+		$Label3D["text"] = "Press Q to Rest"
+	if(Passes == 1):
+		$Label3D["text"] = "Press Q to Dream"
+	if(Passes == 2):
+		$Label3D["text"] = "Press Q to Plant"
 	NearTree = true
+	$Label3D.visible = true
 
 
 func _on_Area_area_exited(area):
 	NearTree = false
+	$Label3D.visible = false
 
 func OnStairs(area):
 	StairsCount += 1

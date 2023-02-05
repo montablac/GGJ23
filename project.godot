@@ -27,6 +27,9 @@ _global_script_class_icons={
 [application]
 
 config/name="Ggj 23"
+run/main_scene="res://Menu.tscn"
+run/disable_stdout=true
+run/disable_stderr=true
 config/icon="res://icon.png"
 
 [editor_plugins]
