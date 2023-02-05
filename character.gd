@@ -31,10 +31,11 @@ func _physics_process(delta):
 func _process(delta):
 	
 	var Direction = 0;
-	var JumpPower = 20;
+	var JumpPower = 40;
 	var NotMoving = true
 	var Gravity = 5.0
 	var SlopeHelper = 1.0
+	var Speed = 10
 	
 	Force = Vector3(0.0,Speed * -1.0,0.0);
 	

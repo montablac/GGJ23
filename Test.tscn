@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -6,12 +6,6 @@
 [ext_resource path="res://Terain/data.hterrain" type="Resource" id=4]
 [ext_resource path="res://tree.tscn" type="PackedScene" id=5]
 [ext_resource path="res://3d_assets/tree/tree.glb" type="PackedScene" id=6]
-
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 10, 0.1, 2 )
-
-[sub_resource type="CubeMesh" id=2]
-size = Vector3( 20, 0.2, 4 )
 
 [sub_resource type="CapsuleMesh" id=4]
 mid_height = 2.0
@@ -21,9 +15,11 @@ mid_height = 2.0
 [sub_resource type="CapsuleShape" id=3]
 height = 2.0
 
-[sub_resource type="ConvexPolygonShape" id=5]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 10, 0.1, 2 )
 
-[sub_resource type="PrismMesh" id=6]
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 20, 0.2, 4 )
 
 [sub_resource type="Resource" id=11]
 script = ExtResource( 3 )
@@ -47,17 +43,6 @@ fog_enabled = true
 
 [node name="Spatial" type="Spatial"]
 
-[node name="StaticBody5" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 94.18, 0, 0, 0, 1, -19.8275, 9.14544, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody5"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody5"]
-transform = Transform( 1, 0, 0, 0, 0.646215, 0, 0, 0, 1, 1.96332, -0.0330996, 0 )
-mesh = SubResource( 2 )
-skeleton = NodePath("../../StaticBody5")
-
 [node name="RigidBody" type="KinematicBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 437.675, 107.074, 1.14441e-05 )
 axis_lock_motion_z = true
@@ -80,17 +65,6 @@ shape = SubResource( 13 )
 [node name="CollisionShape" type="CollisionShape" parent="RigidBody"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 3 )
-
-[node name="StaticBody6" type="StaticBody" parent="."]
-transform = Transform( 12.8679, 0, 0, 0, 4.0096, 0, 0, 0, 2.52717, -42.9023, 20.1721, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody6"]
-shape = SubResource( 5 )
-
-[node name="MeshInstance" type="MeshInstance" parent="StaticBody6"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95361, -1.04032, 0 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../../StaticBody5")
 
 [node name="Platform1" type="StaticBody" parent="."]
 transform = Transform( 0.471423, 0.515218, 0, -0.283394, 0.857059, 0, 0, 0, 1, 177.937, 22.9826, 9.53674e-07 )
@@ -858,6 +832,28 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 423.322, 77.6955, -55.7211 )
 
 [node name="tree88" parent="." instance=ExtResource( 5 )]
 transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 414.556, 82.6739, -45.7458 )
+
+[node name="Platform42" type="StaticBody" parent="."]
+transform = Transform( -1.27399e-07, -1, 0, 2.91455, -4.37114e-08, 0, 0, 0, 1, 459.839, 107.214, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform42"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform42"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268723, 0, 0 )
+mesh = SubResource( 2 )
+
+[node name="Platform43" type="StaticBody" parent="."]
+transform = Transform( -1.27399e-07, -1, 0, 2.91455, -4.37114e-08, 0, 0, 0, 1, -18.9883, -0.2, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Platform43"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Platform43"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268723, 0, 0 )
+mesh = SubResource( 2 )
 
 [connection signal="area_entered" from="Area" to="RigidBody" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="RigidBody" method="_on_Area_area_exited"]
