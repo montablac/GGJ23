@@ -859,5 +859,7 @@ mesh = SubResource( 2 )
 [node name="Spatial" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 460.933, 102.167, 0 )
 
+[connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
+[connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
 [connection signal="area_entered" from="Area" to="Player" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="Player" method="_on_Area_area_exited"]

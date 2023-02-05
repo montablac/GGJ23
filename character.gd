@@ -14,6 +14,7 @@ var SavedDirection = 0
 var Jumping = false
 var slopepercentage = 0.5
 var NearTree = false
+var StairsCount = 0
 
 var Origin = Vector3(0.0,0.0,0.0)
 
@@ -94,3 +95,13 @@ func _on_Area_area_entered(area):
 
 func _on_Area_area_exited(area):
 	NearTree = false
+
+func OnStairs(area):
+	StairsCount += 1
+	if(StairsCount > 0):
+		slopepercentage = 1.8
+	
+func OffStairs(area):
+	StairsCount += 1
+	if(StairsCount == 0):
+		slopepercentage = 0.5
