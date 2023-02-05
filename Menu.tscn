@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Place of our Roots.png" type="Texture" id=2]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+
+[node name="PlaceOfOurRootsImage" type="Sprite" parent="."]
+visible = false
+position = Vector2( 526, 311 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 2 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_top = 1.0
@@ -24,6 +31,15 @@ margin_top = 24.0
 margin_right = 41.0
 margin_bottom = 44.0
 text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.45
+anchor_top = 0.1
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_right = 123.0
+margin_bottom = -33.0
+text = "Place of our Roots"
 
 [connection signal="pressed" from="Menu/Start" to="Menu" method="_on_Start_pressed"]
 [connection signal="pressed" from="Menu/Quit" to="Menu" method="_on_Quit_pressed"]
