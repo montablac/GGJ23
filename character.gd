@@ -5,7 +5,6 @@ signal Change_World(NewState)
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var Speed = 5;
 var Force = Vector3(0.0,0.0,0.0);
 var JumpDirection = Vector3(0.0,0.0,0.0)
 var JumpAmount = 0

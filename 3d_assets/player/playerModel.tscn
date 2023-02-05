@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://3d_assets/player/animations/jump.anim" type="Animation" id=1]
 [ext_resource path="res://3d_assets/player/animations/runJump.anim" type="Animation" id=2]
@@ -7,73 +7,70 @@
 [ext_resource path="res://3d_assets/player/animations/fall.anim" type="Animation" id=5]
 [ext_resource path="res://3d_assets/player/animations/run.anim" type="Animation" id=6]
 [ext_resource path="res://3d_assets/player/animations/walk.anim" type="Animation" id=7]
+[ext_resource path="res://3d_assets/player/playerModel.gd" type="Script" id=8]
 
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "fall"
 
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "walk"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "run"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "jump"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "runJump"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "jump"
+
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "idle"
 
+[sub_resource type="AnimationNodeBlend2" id=22]
+
 [sub_resource type="AnimationNodeBlend2" id=13]
+
+[sub_resource type="AnimationNodeBlend2" id=19]
 
 [sub_resource type="AnimationNodeBlend3" id=14]
 
-[sub_resource type="AnimationNodeAnimation" id=15]
-animation = "run"
-
-[sub_resource type="AnimationNodeAnimation" id=16]
-animation = "runJump"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-
-[sub_resource type="AnimationNodeStateMachine" id=19]
-states/run/node = SubResource( 15 )
-states/run/position = Vector2( 576.333, 189 )
-states/runJump/node = SubResource( 16 )
-states/runJump/position = Vector2( 756.333, 195 )
-transitions = [ "run", "runJump", SubResource( 17 ), "runJump", "run", SubResource( 18 ) ]
-
-[sub_resource type="AnimationNodeAnimation" id=20]
-animation = "jump"
-
-[sub_resource type="AnimationNodeAnimation" id=21]
-animation = "walk"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
-
-[sub_resource type="AnimationNodeStateMachine" id=24]
-states/jump/node = SubResource( 20 )
-states/jump/position = Vector2( 441, 215.667 )
-states/walk/node = SubResource( 21 )
-states/walk/position = Vector2( 374.333, 85 )
-transitions = [ "walk", "jump", SubResource( 22 ), "jump", "walk", SubResource( 23 ) ]
+[sub_resource type="AnimationNodeBlend2" id=20]
 
 [sub_resource type="AnimationNodeBlendTree" id=9]
-graph_offset = Vector2( -366.474, -47.0406 )
+graph_offset = Vector2( -596.206, -141.861 )
 nodes/Animation/node = SubResource( 12 )
-nodes/Animation/position = Vector2( -93.3333, 0 )
+nodes/Animation/position = Vector2( -240, -133.333 )
 "nodes/Animation 2/node" = SubResource( 11 )
-"nodes/Animation 2/position" = Vector2( 173.333, 253.333 )
-nodes/Blend2/node = SubResource( 13 )
-nodes/Blend2/position = Vector2( 439.86, 142.626 )
-nodes/Blend3/node = SubResource( 14 )
-nodes/Blend3/position = Vector2( 189.193, 30.626 )
-nodes/StateMachine/node = SubResource( 24 )
-nodes/StateMachine/position = Vector2( -106.667, 120 )
-"nodes/StateMachine 2/node" = SubResource( 19 )
-"nodes/StateMachine 2/position" = Vector2( -106.667, 253.333 )
+"nodes/Animation 2/position" = Vector2( -240, 506.667 )
+"nodes/Animation 3/node" = SubResource( 15 )
+"nodes/Animation 3/position" = Vector2( -240, 80 )
+"nodes/Animation 4/node" = SubResource( 16 )
+"nodes/Animation 4/position" = Vector2( -240, 293.333 )
+"nodes/Animation 5/node" = SubResource( 17 )
+"nodes/Animation 5/position" = Vector2( -240, 186.667 )
+"nodes/Animation 6/node" = SubResource( 18 )
+"nodes/Animation 6/position" = Vector2( -240, 400 )
+"nodes/Animation 7/node" = SubResource( 21 )
+"nodes/Animation 7/position" = Vector2( -240, -26.6667 )
+nodes/Standing/node = SubResource( 22 )
+nodes/Standing/position = Vector2( -66.6667, -93.3333 )
+nodes/falling/node = SubResource( 13 )
+nodes/falling/position = Vector2( 439.86, 142.626 )
 nodes/output/position = Vector2( 653.333, 133.333 )
-node_connections = [ "output", 0, "Blend2", "Blend3", 0, "Animation", "Blend3", 1, "StateMachine", "Blend3", 2, "StateMachine 2", "Blend2", 0, "Blend3", "Blend2", 1, "Animation 2" ]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id=25]
+nodes/running/node = SubResource( 19 )
+nodes/running/position = Vector2( -66.6667, 266.667 )
+nodes/speed/node = SubResource( 14 )
+nodes/speed/position = Vector2( 189.193, 30.626 )
+nodes/walking/node = SubResource( 20 )
+nodes/walking/position = Vector2( -66.6667, 80 )
+node_connections = [ "speed", 0, "Standing", "speed", 1, "walking", "speed", 2, "running", "output", 0, "falling", "Standing", 0, "Animation", "Standing", 1, "Animation 7", "falling", 0, "speed", "falling", 1, "Animation 2", "walking", 0, "Animation 3", "walking", 1, "Animation 5", "running", 0, "Animation 4", "running", 1, "Animation 6" ]
 
 [node name="model" instance=ExtResource( 3 )]
+script = ExtResource( 8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
 autoplay = "idle"
@@ -88,9 +85,8 @@ anims/walk = ExtResource( 7 )
 tree_root = SubResource( 9 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/Blend2/blend_amount = 0
-parameters/Blend3/blend_amount = -1.0
-parameters/StateMachine/playback = SubResource( 10 )
-"parameters/StateMachine 2/playback" = SubResource( 25 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="3"]
+parameters/Standing/blend_amount = 0.0
+parameters/falling/blend_amount = 0.0
+parameters/running/blend_amount = 0
+parameters/speed/blend_amount = 0.19
+parameters/walking/blend_amount = 0.0
