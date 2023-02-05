@@ -1,6 +1,30 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tree.dae" type="PackedScene" id=1]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Spatial
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var Player = get_tree().get_root().find_node(\"Player\", true, false)
+	Player.connect(\"Change_World\",self,\"Shrink\")
+
+func Shrink(passes):
+	self.scale *= 0.7
+	print(\"shrunk\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
 
 [sub_resource type="SpatialMaterial" id=1]
 vertex_color_use_as_albedo = true
@@ -12,6 +36,7 @@ albedo_color = Color( 0.286275, 0.223529, 0.121569, 1 )
 
 [node name="tree" instance=ExtResource( 1 )]
 transform = Transform( 3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 0, 0, 0 )
+script = SubResource( 3 )
 
 [node name="Cone" parent="." index="0"]
 material/0 = SubResource( 1 )

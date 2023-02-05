@@ -37,12 +37,12 @@ func _process(delta):
 	var SlopeHelper = 1.0
 	var Speed = 10
 	
+	
 	Force = Vector3(0.0,Speed * -1.0,0.0);
 	
 	if(self.is_on_floor()):
 		Jumping = false
 		SlopeHelper += (self.get_floor_angle() * slopepercentage)
-		print(SlopeHelper)
 	
 	if(Input.is_key_pressed(KEY_D) && !Jumping):
 		Direction += 1.0;
@@ -58,9 +58,11 @@ func _process(delta):
 			SavedDirection = Direction
 	
 	if(Input.is_key_pressed(KEY_Q) && NearTree):
-		print("got to top")
 		self.global_transform.origin = Vector3(0,0,0)
 		Passes += 1
+		emit_signal("Change_World", Passes)
+		NearTree = false
+		print(Passes)
 	
 	if(Jumping):
 		Force[0] += SavedDirection * Speed 
