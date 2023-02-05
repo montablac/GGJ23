@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://3d_assets/tree/tree.glb" type="PackedScene" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.32549, 0.243137, 0.180392, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.894118, 0.145098, 0.882353, 1 )
+
+[node name="tree" instance=ExtResource( 1 )]
+transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0 )
+
+[node name="trunk" parent="Tree" index="0"]
+material/0 = SubResource( 1 )
+
+[node name="canopy1" parent="Tree" index="1"]
+material/0 = SubResource( 2 )
+
+[node name="canopy2" parent="Tree" index="2"]
+material/0 = SubResource( 2 )
+
+[node name="canopy3" parent="Tree" index="3"]
+material/0 = SubResource( 2 )
+
+[node name="canopy4" parent="Tree" index="4"]
+material/0 = SubResource( 2 )
