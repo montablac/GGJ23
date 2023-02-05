@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -19,6 +19,8 @@ mid_height = 2.0
 
 [sub_resource type="CapsuleShape" id=3]
 height = 2.0
+
+[sub_resource type="CubeMesh" id=18]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 0.1, 2 )
@@ -75,6 +77,14 @@ shape = SubResource( 3 )
 [node name="model" parent="Player" instance=ExtResource( 7 )]
 transform = Transform( -1.31134e-06, 0, 30, 0, 30, 0, -30, 0, -1.31134e-06, 0, -2.06005, 0 )
 
+[node name="MeshInstance2" type="MeshInstance" parent="Player"]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 0.01, 0, 0, 6.40655 )
+visible = false
+mesh = SubResource( 18 )
+
+[node name="Timer" type="Timer" parent="Player"]
+wait_time = 0.33
+
 [node name="Platform1" type="StaticBody" parent="."]
 transform = Transform( 0.471423, 0.515218, 0, -0.283394, 0.857059, 0, 0, 0, 1, 177.937, 22.9826, 9.53674e-07 )
 visible = false
@@ -103,6 +113,7 @@ transform = Transform( 0.540471, -0.185787, 0, 0.102191, 0.98259, 0, 0, 0, 1, 19
 visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="JumpPlatform1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183716, 0.053442, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="JumpPlatform1"]
@@ -548,6 +559,7 @@ mesh = SubResource( 2 )
 
 [node name="Area" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 455.551, 106.96, 0 )
+monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
 shape = SubResource( 12 )
@@ -1108,5 +1120,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.168, 0, 0 )
 
 [connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
 [connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
+[connection signal="timeout" from="Player/Timer" to="Player" method="_on_Timer_timeout"]
 [connection signal="area_entered" from="Area" to="Player" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="Player" method="_on_Area_area_exited"]
