@@ -59,6 +59,8 @@ func _process(delta):
 	
 	if(Input.is_key_pressed(KEY_Q) && NearTree):
 		print("got to top")
+		self.global_transform.origin = Vector3(0,0,0)
+		Passes += 1
 	
 	if(Jumping):
 		Force[0] += SavedDirection * Speed 
