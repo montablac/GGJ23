@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://character.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://3d_assets/tree/TreeEvolve.tscn" type="PackedScene" id=6]
 [ext_resource path="res://3d_assets/player/playerModel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://3d_assets/stairs/stairs.tscn" type="PackedScene" id=8]
+[ext_resource path="res://3d_assets/plank/plank.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleMesh" id=4]
 mid_height = 2.0
@@ -97,22 +98,25 @@ mesh = SubResource( 2 )
 
 [node name="JumpPlatform1" type="StaticBody" parent="."]
 transform = Transform( 0.540471, -0.185787, 0, 0.102191, 0.98259, 0, 0, 0, 1, 193.019, 26.7447, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="JumpPlatform1"]
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="JumpPlatform1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2659, 9.53674e-07, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265869, 3.8147e-06, 0 )
 mesh = SubResource( 2 )
 
 [node name="JumpPlatform2" type="StaticBody" parent="."]
 transform = Transform( 0.303572, 0.236974, 0, -0.0740479, 0.971516, 0, 0, 0, 1, 201.494, 27.1181, -5.81741e-05 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="JumpPlatform2"]
+transform = Transform( 1, 1.19209e-07, 0, -7.45058e-09, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="JumpPlatform2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265915, 0, 0 )
+transform = Transform( 1.18108, 0.290717, 0, -0.00338813, 1.0076, 0, 0, 0, 1, 2.38037, -0.0702667, 0 )
 mesh = SubResource( 2 )
 
 [node name="Platform5" type="StaticBody" parent="."]
@@ -124,26 +128,6 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Platform5"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2659, 0, 0 )
-mesh = SubResource( 2 )
-
-[node name="JumpPlatform3" type="StaticBody" parent="."]
-transform = Transform( 0.52581, -0.293573, 0, 0.161479, 0.955937, 0, 0, 0, 1, 217.607, 29.7612, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform3"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform3"]
-transform = Transform( 1, 2.98023e-08, 0, 7.45058e-09, 1, 0, 0, 0, 1, 0.2659, 5.72205e-06, 0 )
-mesh = SubResource( 2 )
-
-[node name="JumpPlatform4" type="StaticBody" parent="."]
-transform = Transform( 0.312162, 0.0446132, 0, -0.0139404, 0.999004, 0, 0, 0, 1, 226.027, 31.2838, -5.81741e-05 )
-
-[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform4"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform4"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.265915, 0, 0 )
 mesh = SubResource( 2 )
 
 [node name="Platform8" type="StaticBody" parent="."]
@@ -169,26 +153,6 @@ shape = SubResource( 1 )
 transform = Transform( 0.99746, -1.49012e-08, 0, -1.11759e-08, 0.99746, 0, 0, 0, 0.99746, 0.265915, 0, 0 )
 mesh = SubResource( 2 )
 
-[node name="JumpPlatform5" type="StaticBody" parent="."]
-transform = Transform( 0.526234, -0.291053, 0, 0.160093, 0.956707, 0, 0, 0, 1, 248.149, 31.4237, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform5"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform5"]
-transform = Transform( 1, 2.98023e-08, 0, 7.45058e-09, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 2 )
-
-[node name="JumpPlatform6" type="StaticBody" parent="."]
-transform = Transform( 0.51275, -0.113055, 0, 0.0662235, 0.992726, 0, 0, 0, 1, 258.54, 33.667, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform6"]
-transform = Transform( 1, 5.96046e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform6"]
-mesh = SubResource( 2 )
-
 [node name="Platform12" type="StaticBody" parent="."]
 transform = Transform( 0.230935, -3.89252, 0, 1.25078, 2.70981, 0, 0, 0, 1, 266.276, 24.313, 0 )
 visible = false
@@ -212,6 +176,7 @@ mesh = SubResource( 2 )
 
 [node name="JumpPlatform7" type="StaticBody" parent="."]
 transform = Transform( 0.225382, -0.454907, 0.000808643, 0.176556, 0.783928, 0.000990644, -0.000423351, -0.000212999, 0.999999, 265.822, 35.9623, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="JumpPlatform7"]
 transform = Transform( 1, 4.80634e-09, 9.31323e-10, 2.22516e-09, 1, 0, -5.82077e-11, -2.91038e-11, 1, 0, 0, 0 )
@@ -423,6 +388,7 @@ transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 49.3012, 1.33568, 5.08638 )
 
 [node name="BridgePlatform1" type="StaticBody" parent="."]
 transform = Transform( 1.60949, 0, 0, 0, 1, 0, 0, 0, 1, 250.944, 37.6378, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BridgePlatform1"]
 shape = SubResource( 1 )
@@ -433,6 +399,7 @@ mesh = SubResource( 2 )
 
 [node name="BridgePlatform2" type="StaticBody" parent="."]
 transform = Transform( 1.60949, 0, 0, 0, 1, 0, 0, 0, 1, 219.164, 37.6378, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BridgePlatform2"]
 shape = SubResource( 1 )
@@ -442,6 +409,7 @@ mesh = SubResource( 2 )
 
 [node name="BridgePlatform3" type="StaticBody" parent="."]
 transform = Transform( 1.86346, -0.363154, 0, 0.726307, 0.931729, 0, 0, 0, 1, 184.501, 30.3603, 0 )
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BridgePlatform3"]
 transform = Transform( 1, 1.49012e-08, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
@@ -860,8 +828,6 @@ mesh = SubResource( 2 )
 [node name="Spatial" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 460.933, 102.167, 0 )
 
-[connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
-[connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
 [node name="stairs" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 366.587, 68.7815, 0 )
 
@@ -928,5 +894,211 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 419.086, 99.2848, 0 )
 [node name="stairs22" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 421.011, 100.771, 0 )
 
+[node name="plank" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 196.664, 27.5498, 0 )
+
+[node name="plank2" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 200.656, 27.4178, 0 )
+
+[node name="plank3" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 188.699, 26.0516, 0 )
+
+[node name="plank4" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 192.688, 26.8019, 0 )
+
+[node name="plank5" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 204.581, 26.3982, 0 )
+
+[node name="plank6" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 226.091, 30.3355, -1.15051 )
+
+[node name="plank7" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 230.083, 30.2035, -1.15051 )
+
+[node name="plank8" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 218.125, 28.8373, -1.15051 )
+
+[node name="plank9" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 222.115, 29.5876, -1.15051 )
+
+[node name="plank10" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 234.008, 29.1839, -1.15051 )
+
+[node name="JumpPlatform3" type="StaticBody" parent="."]
+transform = Transform( 0.540471, -0.185787, 0, 0.102191, 0.98259, 0, 0, 0, 1, 219.986, 29.3516, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33984, -0.555357, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60577, -0.555351, 0 )
+mesh = SubResource( 2 )
+
+[node name="JumpPlatform4" type="StaticBody" parent="."]
+transform = Transform( 0.303572, 0.236974, 0, -0.0740479, 0.971516, 0, 0, 0, 1, 228.461, 29.725, -5.81741e-05 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform4"]
+transform = Transform( 1, 1.19209e-07, 0, -7.45058e-09, 1, 0, 0, 0, 1, 9.29382, 0.708351, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform4"]
+transform = Transform( 1.18108, 0.290717, 0, -0.00338813, 1.0076, 0, 0, 0, 1, 11.6741, 0.6381, 0 )
+mesh = SubResource( 2 )
+
+[node name="plank11" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 226.091, 30.3355, -1.15051 )
+
+[node name="plank12" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 230.083, 30.2035, -1.15051 )
+
+[node name="plank13" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 218.125, 28.8373, -1.15051 )
+
+[node name="plank14" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.982768, -0.184843, 0, 0.184843, 0.982768, 0, 0, 0, 1, 222.115, 29.5876, -1.15051 )
+
+[node name="plank15" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.969702, 0.244292, 0, -0.244292, 0.969702, 0, 0, 0, 1, 234.008, 29.1839, -1.15051 )
+
+[node name="plank16" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 252.776, 32.8097, -1.15051 )
+
+[node name="plank17" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.996503, -0.0835561, 0, 0.0835561, 0.996503, 0, 0, 0, 1, 256.73, 33.709, -1.15051 )
+
+[node name="plank18" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 245.155, 30.0502, -1.15051 )
+
+[node name="plank19" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 248.972, 31.4323, -1.15051 )
+
+[node name="plank20" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.996503, -0.0835561, 0, 0.0835561, 0.996503, 0, 0, 0, 1, 260.774, 34.0181, -1.15051 )
+
+[node name="JumpPlatform8" type="StaticBody" parent="."]
+transform = Transform( 0.51701, -0.341348, 0, 0.187757, 0.939937, 0, 0, 0, 1, 246.909, 30.857, 0 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.33984, -0.555357, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60577, -0.555351, 0 )
+mesh = SubResource( 2 )
+
+[node name="JumpPlatform9" type="StaticBody" parent="."]
+transform = Transform( 0.311528, 0.0776937, 0, -0.0242772, 0.996977, 0, 0, 0, 1, 255.214, 32.5881, -5.81741e-05 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="JumpPlatform9"]
+transform = Transform( 0.985759, -0.538167, 0, 0.0525461, 0.985758, 0, 0, 0, 1, 9.18475, 1.33899, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="JumpPlatform9"]
+transform = Transform( 1.16608, -0.255678, 0, 0.0587212, 1.00852, 0, 0, 0, 1, 11.5689, 1.39483, 0 )
+mesh = SubResource( 2 )
+
+[node name="plank21" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 252.776, 32.8097, -1.15051 )
+
+[node name="plank22" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.996503, -0.0835561, 0, 0.0835561, 0.996503, 0, 0, 0, 1, 256.73, 33.709, -1.15051 )
+
+[node name="plank23" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 245.155, 30.0502, -1.15051 )
+
+[node name="plank24" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.940264, -0.340445, 0, 0.340445, 0.940264, 0, 0, 0, 1, 248.972, 31.4323, -1.15051 )
+
+[node name="plank25" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.996503, -0.0835561, 0, 0.0835561, 0.996503, 0, 0, 0, 1, 260.774, 34.0181, -1.15051 )
+
+[node name="plank26" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.860778, -0.508981, 0, 0.508981, 0.860778, 0, 0, 0, 1, 264.589, 35.2386, -1.15051 )
+
+[node name="plank27" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.974343, -0.22507, 0, 0.22507, 0.974343, 0, 0, 0, 1, 268.095, 36.6144, -1.15051 )
+
+[node name="plank28" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 266.137, 37.698, -1.15051 )
+
+[node name="plank29" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 262.087, 37.698, -1.15051 )
+
+[node name="plank30" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 258.016, 37.698, -1.15051 )
+
+[node name="plank31" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 253.966, 37.698, -1.15051 )
+
+[node name="plank32" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 249.88, 37.698, -1.15051 )
+
+[node name="plank33" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 245.83, 37.698, -1.15051 )
+
+[node name="plank34" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 241.759, 37.698, -1.15051 )
+
+[node name="plank35" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 237.709, 37.698, -1.15051 )
+
+[node name="plank36" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 233.597, 37.698, -1.15051 )
+
+[node name="plank37" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 229.548, 37.698, -1.15051 )
+
+[node name="plank38" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 225.477, 37.698, -1.15051 )
+
+[node name="plank39" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 221.427, 37.698, -1.15051 )
+
+[node name="plank40" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 217.341, 37.698, -1.15051 )
+
+[node name="plank41" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 213.291, 37.698, -1.15051 )
+
+[node name="plank42" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 209.22, 37.698, -1.15051 )
+
+[node name="plank43" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 205.17, 37.698, -1.15051 )
+
+[node name="plank44" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 201.281, 36.9059, -1.15051 )
+
+[node name="plank45" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 197.518, 35.4118, -1.15051 )
+
+[node name="plank46" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 193.733, 33.9097, -1.15051 )
+
+[node name="plank47" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 189.97, 32.4156, -1.15051 )
+
+[node name="plank48" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 186.171, 30.9079, -1.15051 )
+
+[node name="plank49" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 182.408, 29.4138, -1.15051 )
+
+[node name="plank50" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 178.624, 27.9117, -1.15051 )
+
+[node name="plank51" parent="." instance=ExtResource( 9 )]
+transform = Transform( 0.929448, -0.368952, 0, 0.368952, 0.929448, 0, 0, 0, 1, 174.86, 26.4176, -1.15051 )
+
+[node name="plank52" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 270.305, 37.698, -1.15051 )
+
+[connection signal="area_entered" from="Player/Area" to="Player" method="OnStairs"]
+[connection signal="area_exited" from="Player/Area" to="Player" method="OffStairs"]
 [connection signal="area_entered" from="Area" to="Player" method="_on_Area_area_entered"]
 [connection signal="area_exited" from="Area" to="Player" method="_on_Area_area_exited"]
