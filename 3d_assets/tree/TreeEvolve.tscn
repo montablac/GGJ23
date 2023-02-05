@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://saplingColored.tscn" type="PackedScene" id=1]
 [ext_resource path="res://seedlingColored.tscn" type="PackedScene" id=2]
 [ext_resource path="res://treeColored.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TreeEvolve.gd" type="Script" id=4]
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 4 )
 
 [node name="tree" parent="." instance=ExtResource( 3 )]
 
 [node name="sapling" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="seedling" parent="." instance=ExtResource( 2 )]
+visible = false

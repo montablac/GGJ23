@@ -16,11 +16,9 @@ func _ready():
 
 func SignalJump():
 	Jumped = true
-	print("jump")
 
 func SignalLand():
 	Fall = false
-	print("land")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,7 +48,6 @@ func _process(delta):
 		Fall = true
 		Jumped = false
 		
-	print(Diffrence[1])
 	
 	if(Jumped):
 		Jumping = 1

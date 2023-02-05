@@ -17,8 +17,8 @@ func _ready():
 	Player.connect(\"Change_World\",self,\"Shrink\")
 
 func Shrink(passes):
-	self.scale *= 0.7
-	print(\"shrunk\")
+	if(passes < 3):
+		self.scale *= 0.7
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
