@@ -849,7 +849,7 @@ material/0 = SubResource( 15 )
 environment = SubResource( 16 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 7.50535, 0, 14.6214, 0, 20, 0, -8.04175, 0, 13.6461, 437.155, 94.9752, -19.3723 )
+transform = Transform( 17, 0, 0, 0, 20, 0, 0, 0, 20, 443.354, 97.8908, -15.612 )
 mesh = SubResource( 14 )
 material/0 = SubResource( 15 )
 
